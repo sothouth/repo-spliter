@@ -20,7 +20,11 @@ pub struct Cli {
     pub local: Option<String>,
     #[clap(long, short, help = "remote new repo path")]
     pub remote: Option<String>,
-    #[clap(long, short, help = "make old dir a submodule")]
+    #[clap(
+        long,
+        short,
+        help = "make old dir a submodule (if you want to keep it, you need remove it too)"
+    )]
     pub keep: bool,
 }
 
