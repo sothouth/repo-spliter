@@ -1,0 +1,10 @@
+[package]
+name = "repo-spliter"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+thiserror = "*"
+
+git2 = "*"
+clap = { version = "*", features = ["derive"] }
