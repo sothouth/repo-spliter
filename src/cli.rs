@@ -10,20 +10,25 @@ pub fn cli() -> &'static Cli {
 
 #[derive(Debug, Parser)]
 pub struct Cli {
-    #[clap(help = "The path to the git repository")]
+    #[clap(help = "Path to source Git repository")]
     pub repo: String,
-    #[clap(help = "rel-path to the sub-dir")]
+    #[clap(help = "Relative path to target subdirectory")]
     pub path: String,
-    #[clap(value_enum, default_value_t = Remove::Nothing,help="remove the sub-dir after split")]
+    #[clap(value_enum, default_value_t = Remove::Nothing,help="\
+Post-split cleanup action [default: nothing]
+    Possible values:
+        -n nothing: Preserve original directory
+        -c commit: Remove directory in new commit
+        -p prune: Purge directory from history")]
     pub remove: Remove,
-    #[clap(long, short, help = "local new repo path")]
+    #[clap(long, short, help = "Output path for new repository")]
     pub local: Option<String>,
-    #[clap(long, short, help = "remote new repo path")]
+    #[clap(long, short, help = "Remote repository URL to set")]
     pub remote: Option<String>,
     #[clap(
         long,
         short,
-        help = "make old dir a submodule (if you want to keep it, you need remove it too)"
+        help = "Convert original directory to submodule (requires removal)"
     )]
     pub keep: bool,
 }
