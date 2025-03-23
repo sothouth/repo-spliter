@@ -219,7 +219,7 @@ fn split(cli: &Cli) -> Result<()> {
                     .current_dir(repo_path)
                     .arg("commit")
                     .arg("-m")
-                    .arg(format!("remove {}", path_git)),
+                    .arg(format!("remove {}", path_rel)),
             )?;
 
             println!("done.");
