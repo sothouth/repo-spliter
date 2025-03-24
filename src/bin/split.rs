@@ -293,7 +293,8 @@ fn split(cli: &Cli) -> Result<()> {
             Command::new("git")
                 .current_dir(repo_path)
                 .arg("add")
-                .arg("."),
+                .arg(".gitmodules")
+                .arg(path_rel),
         )?;
 
         execute(
