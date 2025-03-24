@@ -285,6 +285,8 @@ fn split(cli: &Cli) -> Result<()> {
                 .current_dir(repo_path)
                 .arg("submodule")
                 .arg("add")
+                .arg("-b")
+                .arg("main")
                 .arg(remote)
                 .arg(path_rel),
         )?;
